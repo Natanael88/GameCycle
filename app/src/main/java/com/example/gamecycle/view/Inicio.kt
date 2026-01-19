@@ -6,14 +6,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -26,29 +23,28 @@ import androidx.navigation.NavController
 @Composable
 fun homeScreen(navController: NavController){
 
-    Column(modifier = Modifier.fillMaxSize().padding(16.dp), verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally) {
+
+    Image(
+        painter = painterResource(id = R.drawable.glogo),
+        "Logo App",
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(150.dp),
+        contentScale = ContentScale.Fit
+
+    )
+    Column(modifier = Modifier.fillMaxSize().padding(16.dp), verticalArrangement = Arrangement.Center) {
         Text(text = "GAME CYCLE", fontWeight = FontWeight.Bold)
-
-
-        Image(
-            painter = painterResource(id = R.drawable.glogo),
-            "Logo App",
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(150.dp),
-            contentScale = ContentScale.Fit
-
-        )
 
 
         Button(onClick = {navController.navigate("Login")},
             colors = ButtonDefaults.buttonColors(
                 Color.Blue,
-                Color.White,
-            ), modifier = Modifier.padding(40.dp)
+                Color.White
+            )
+
         ) {
-            Text("Iniciar", modifier = Modifier.size(100.dp,20.dp).offset(30.dp))
+            Text("Iniciar")
         }
 
         Button(onClick = {navController.navigate("Registro")},
@@ -58,7 +54,7 @@ fun homeScreen(navController: NavController){
             )
 
         ) {
-            Text("Registrar", modifier = Modifier.size(100.dp,20.dp).offset(30.dp))
+            Text("Registrar")
         }
 
     }
